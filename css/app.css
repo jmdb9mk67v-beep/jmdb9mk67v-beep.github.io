@@ -286,14 +286,16 @@ body {
 }
 
 /*
-  I am upgrading the glassCard to accept the JS-driven 3D tilt.
-  This uses CSS variables injected by our JavaScript tracker,
-  ensuring no direct inline styling of the layout occurs.
+  I am engineering the JS-driven 3D tilt.
+  I chain the transform functions 
+  and use will-change to avoid layout thrashing.
 */
 .glassCard {
+  will-change: transform;
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  transform: perspective(1000px);
-  rotateX(var(--rotateX, 0deg))
-  rotateY(var(--rotateY)0deg))
-  translateY(var(--translateY, 0px));
+  transform: 
+    perspective(1000px) 
+    rotateX(var(--rotateX, 0deg)) 
+    rotateY(var(--rotateY, 0deg)) 
+    translateY(var(--translateY, 0px));
 }
