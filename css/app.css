@@ -1,0 +1,153 @@
+/* I am setting up the global design system here.  I only use hex color values 
+/* with shortcuts where possible, px and rem for units */
+/* to keep the code clean and I am also using variables for efficiency */ 
+
+:root {
+  --bgColor: #050505;
+  --glassSurface: #1e1e1e66;
+  --glassBorder: #fff2;
+  --accentColor: #f702c6;
+  --textColor: #dadadd;
+}
+
+/*
+  I am defining the foundational body styles.
+  I ensure the font is clean and the background 
+  stays locked in place for a mature aesthetic.
+*/
+body {
+  margin: 0;
+  background: var(--bgColor);
+  color: var(--textColor);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/*
+  I am using flexbox for the main layout.
+  This keeps the sidebar fixed on the left 
+  and the content stretching across the rest.
+*/
+.dashboardContainer {
+  display: flex;
+  min-height: 100vh; 
+}
+
+/*
+  I am styling the sidebar with a deep glass effect.
+  I use backdrop-filter to give it that expensive, 
+  layered production reality look.
+*/
+.sideBar {
+  width: 260px;
+  background: #0a0a0acc;
+  backdrop-filter: blur(20px);
+  border-right: 1px solid var(--glassBorder);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+  I am formatting the profile section.
+  I use a solid hex border to make  
+  avatar pop against the dark glass.
+*/
+.profileSection {
+  text-align: center;
+}
+
+.navAvatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid var(--accentColor);
+  margin-bottom: 1rem;
+}
+
+/*
+  I am building the navigation links.
+  I remove default list styles and add 
+  a smooth color transition for hovers.
+  Hovers are my trademark.
+*/
+.navLinks {
+  list-style: none;
+  padding: 0;
+  margin-top: 3rem;
+}
+
+.navLinks li a {
+  color: #86868b;
+  text-decoration: none;
+  display: block;
+  padding: 1rem 0;
+  transition: color 0.3s;
+}
+
+.navLinks li a:hover,
+.activeLink {
+  color: var(--accentColor);
+}
+
+/*
+  I am centering the main content area.
+  I use clamp for fluid padding so it 
+  scales perfectly without media queries.
+*/
+.contentArea {
+  flex: 1;
+  padding: clamp(1rem, 3vw, 3rem);  /* clamp(minimum, preferred, maximum) */
+  display: flex;
+  justify-content: center; /* horizontal alignment */
+  align-items: flex-start; /* verticle alignment starting at the top */
+}
+
+/*
+  I am engineering the glass card container.
+  This holds the bio text and images inside 
+  a frosted boundary.
+*/
+.glassCard {
+  background: var(--glassSurface);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--glassBorder);
+  border-radius: 24px;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  max-width: 800px;
+  width: 100%;
+}
+
+.pageTitle {
+  margin-top: 0;
+  color: #fff;
+}
+
+/*
+  I am using CSS Grid to separate the text and image.
+  It is fluid and adapts automatically, stacking 
+  on smaller screens instantly. -- STAT!
+*/
+.bioGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.bioText p {
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+
+/*
+  I am making sure your secondary image is responsive.
+  It will fill the grid column perfectly 
+  and feature a subtle border.
+*/
+.bioImgSecondary {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--glassBorder);
+}
