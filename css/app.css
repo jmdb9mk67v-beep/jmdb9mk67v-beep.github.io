@@ -1,6 +1,7 @@
 /* I am setting up the global design system here.  I only use hex color values 
-/* with shortcuts where possible, px and rem for units */
-/* to keep the code clean and I am also using variables for efficiency */ 
+with shortcuts where possible, px and rem for units 
+to keep the code clean and I am also using variables for efficiency 
+*/
 
 :root {
   --bgColor: #050505;
@@ -150,4 +151,110 @@ body {
   width: 100%;
   border-radius: 12px;
   border: 1px solid var(--glassBorder);
+}
+
+/* PROFILE -- I am adding the profile-specific styles below.
+  I am maintaining the glass-morphism aesthetic 
+  and strict camelCase naming conventions.
+*/
+.statsContainer {
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  padding: clamp(1rem, 3vw, 2rem);
+  background: #fff1;
+  border-radius: 12px;
+  border: 1px solid var(--glassBorder);
+}
+
+.statBox h3 {
+  margin: 0 0 0.5rem 0;
+  color: #ccc;
+  font-weight: 400;
+}
+
+.highlightStat {
+  color: var(--accentColor);
+  font-size: clamp(2rem, 4vw, 3rem); /* reminder...min, preferred, and max */
+  margin: 0;
+}
+
+.sectionTitle {
+  margin: 2.5rem 0 1.5rem 0;
+  color: #fff;
+  border-bottom: 1px solid var(--glassBorder);
+  padding-bottom: 0.5rem;
+}
+
+/*
+  I am using CSS Grid with auto-fit for the tech stack.
+  This ensures perfect fluid scaling without media queries.
+*/
+.techGrid, 
+.learningGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+.techItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  color: #ccc;
+}
+
+.techItem i {
+  font-size: 3rem;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.techItem:hover i {
+  transform: translateY(-4px);
+}
+
+/*
+  I am styling the learning badges for Java and Swift.
+  This visually separates my established stack 
+  from my new back-end learning path.
+*/
+.learningState {
+  opacity: 0.7;
+  position: relative;
+}
+
+.loadingBadge {
+  background: var(--accentColor);
+  color: #fff;
+  font-size: 0.6rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* I am adding specific brand colors to my 
+   new deployment icons for a pro finish. 
+*/
+
+.devicon-github-original {
+  color: #fff;
+}
+
+.devicon-netlify-plain {
+  color: #25c2ad;
+}
+
+.devicon-googlecloud-plain {
+  color: #4285f4;
+}
+
+/* I am adding a subtle glow to the deployment 
+  icons to signify their "Cloud" nature.
+*/
+.techItem i[class*="netlify"],
+.techItem i[class*="googlecloud"] {
+  filter: drop-shadow(0 0 8px var(--glassBorder));
 }
